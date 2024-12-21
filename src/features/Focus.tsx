@@ -7,7 +7,11 @@ import { useState } from 'react';
 
 import { RoundedButton } from '../components/RoundedButton';
 
-export const Focus = () => {
+type FocusProps = {
+  handleAdd: (subject: string) => void;
+};
+
+export const Focus = ({ handleAdd }: FocusProps) => {
   const [subject, setSubject] = useState<string>('');
 
   return (
@@ -20,7 +24,7 @@ export const Focus = () => {
           onChangeText={setSubject} // callback that is called when the text input's text changes.
         />
         <View style={styles.button}>
-          <RoundedButton title='+' size={50} />
+          <RoundedButton title='+' size={50} onPress={() => handleAdd(subject)} />
         </View>
       </View>
     </View>
