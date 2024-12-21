@@ -18,3 +18,9 @@ https://docs.expo.dev/versions/latest/sdk/status-bar/
 
 - A library that provides the same interface as the React Native StatusBar API, but with slightly
   different defaults to work great in Expo environments.
+
+## React Native Paper
+
+https://callstack.github.io/react-native-paper/
+
+- Collection of customizable and production-ready components for React Native.
