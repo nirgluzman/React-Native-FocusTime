@@ -7,6 +7,7 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { useState } from 'react';
 
 import { Focus } from './src/features/Focus';
+import { Timer } from './src/features/Timer';
 import { colors } from './src/utils/colors';
 
 export default function App() {
@@ -19,11 +20,7 @@ export default function App() {
           {!currentSubject ? (
             <Focus handleAdd={setCurrentSubject} />
           ) : (
-            <View>
-              <Text style={{ color: colors.white }}>
-                I am going to render the timer for {currentSubject}
-              </Text>
-            </View>
+            <Timer focusSubject={currentSubject} onTimerEnd={() => {}} clearSubject={() => {}} />
           )}
         </SafeAreaView>
       </SafeAreaProvider>
