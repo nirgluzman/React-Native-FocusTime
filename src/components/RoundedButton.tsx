@@ -19,10 +19,11 @@ const styles = (size: number) =>
       alignItems: 'center',
       justifyContent: 'center',
       borderColor: colors.white,
-      borderWidth: 2,
+      borderWidth: 3,
     },
     text: {
       color: colors.white,
-      fontSize: size / 3,
+      fontSize: size / 4,
+      fontWeight: 'bold',
     },
   });
