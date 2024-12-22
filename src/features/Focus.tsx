@@ -6,6 +6,7 @@ import {
 import { useState } from 'react';
 
 import { RoundedButton } from '../components/RoundedButton';
+import { fontSizes, spacing } from '../utils/sizes';
 
 type FocusProps = {
   handleAdd: (subject: string) => void;
@@ -41,14 +42,14 @@ const styles = StyleSheet.create({
   },
 
   inputCotainer: {
-    padding: 25,
+    padding: spacing.lg,
     justifyContent: 'flex-start',
     flexDirection: 'row',
   },
 
   textInput: {
     flex: 1,
-    fontSize: 15,
-    marginRight: 10,
+    fontSize: fontSizes.md,
+    marginRight: spacing.sm,
   },
 });
