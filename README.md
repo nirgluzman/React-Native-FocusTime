@@ -30,3 +30,14 @@ https://callstack.github.io/react-native-paper/
 https://www.npmjs.com/package/react-native-progress
 
 - Progress indicators and spinners for React Native using React Native SVG.
+
+## Padding vs. Margin
+
+- `Margin` is the space around an element. It is used to move an element up or down on a page as
+  well as left or right.
+- Margins are used when you need to adjust the spacing between elements.
+
+- `Padding` is the space between the element and the related content inside it. It determines how
+  elements look and sit within a container.
+- Padding is used if we want to create a space between an element and the edge of the container or
+  the border.
