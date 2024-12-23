@@ -17,7 +17,7 @@ export const Focus = ({ handleAdd }: FocusProps) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.inputCotainer}>
+      <View style={styles.inputContainer}>
         <TextInput
           style={styles.textInput}
           label='What would you like to focus on?'
@@ -25,7 +25,12 @@ export const Focus = ({ handleAdd }: FocusProps) => {
           onChangeText={setSubject} // callback that is called when the text input's text changes.
         />
         <View style={styles.button}>
-          <RoundedButton title='+' size={50} onPress={() => handleAdd(subject)} />
+          <RoundedButton
+            title='+'
+            size={50}
+            textStyle={{ fontSize: fontSizes.lg }}
+            onPress={() => handleAdd(subject)}
+          />
         </View>
       </View>
     </View>
@@ -39,9 +44,10 @@ const styles = StyleSheet.create({
 
   button: {
     justifyContent: 'center',
+    alignItems: 'center',
   },
 
-  inputCotainer: {
+  inputContainer: {
     padding: spacing.lg,
     justifyContent: 'flex-start',
     flexDirection: 'row',
