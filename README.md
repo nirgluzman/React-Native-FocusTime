@@ -24,3 +24,9 @@ https://docs.expo.dev/versions/latest/sdk/status-bar/
 https://callstack.github.io/react-native-paper/
 
 - Collection of customizable and production-ready components for React Native.
+
+## Progress indicator
+
+https://www.npmjs.com/package/react-native-progress
+
+- Progress indicators and spinners for React Native using React Native SVG.
