@@ -23,7 +23,7 @@ export default function App() {
             <Timer
               focusSubject={currentSubject}
               onTimerEnd={() => {}}
-              clearSubject={() => setCurrentSubject(null)}
+              onClearSubject={() => setCurrentSubject(null)}
             />
           )}
         </SafeAreaView>
