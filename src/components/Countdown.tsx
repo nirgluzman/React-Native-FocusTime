@@ -32,15 +32,14 @@ export const Countdown = ({
   const [millis, setMillis] = useState<number>(0);
 
   // a ref to store the ID of the setInterval call, allowing for proper cleanup.
-  const interval = useRef<NodeJS.Timeout | null>(null);
+  const intervalId = useRef<NodeJS.Timeout | null>(null);
 
   const countDown = () => {
     setMillis((time: number) => {
-      if (interval.current && time === 0) {
-        // clearing the interval when the countdown finishes.
-        clearInterval(interval.current);
+      if (intervalId.current && time === 0) {
+        clearInterval(intervalId.current); // clearing the interval when the countdown finishes.
         onEnd();
-        return time;
+        return minutesToMillis(minutes); // timer resets to its initial value.
       }
       // subtracts 1000 milliseconds from the current millis value, i.e. decrementing the countdown timer by one second.
       const timeLeft = time - 1000;
@@ -62,19 +61,19 @@ export const Countdown = ({
   useEffect(() => {
     if (isPaused) {
       //  clear the existing interval.
-      if (interval.current) clearInterval(interval.current);
+      if (intervalId.current) clearInterval(intervalId.current);
       return;
     }
 
-    // start the setInterval with the countDown function.
+    // set up an interval to call the countDown function every second (1000 milliseconds).
     // setInterval() is a built-in JavaScript function that allows you to execute a specified function repeatedly at a given interval (in milliseconds).
-    interval.current = setInterval(countDown, 1000);
+    intervalId.current = setInterval(countDown, 1000);
 
     // cleanup function that is returned within a useEffect hook.
     return () => {
-      if (interval.current) {
+      if (intervalId.current) {
         // an interval is currently active.
-        clearInterval(interval.current);
+        clearInterval(intervalId.current);
       }
     };
   }, [isPaused]);
