@@ -11,7 +11,7 @@ import { Timer } from './src/features/Timer';
 import { colors } from './src/utils/colors';
 
 export default function App() {
-  const [currentSubject, setCurrentSubject] = useState<string>('');
+  const [currentSubject, setCurrentSubject] = useState<string | null>(null);
   return (
     <>
       <StatusBar style='light' />
@@ -20,7 +20,11 @@ export default function App() {
           {!currentSubject ? (
             <Focus handleAdd={setCurrentSubject} />
           ) : (
-            <Timer focusSubject={currentSubject} onTimerEnd={() => {}} clearSubject={() => {}} />
+            <Timer
+              focusSubject={currentSubject}
+              onTimerEnd={() => {}}
+              clearSubject={() => setCurrentSubject(null)}
+            />
           )}
         </SafeAreaView>
       </SafeAreaProvider>

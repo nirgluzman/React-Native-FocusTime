@@ -25,18 +25,18 @@ const PATTERN = [
 type TimerProps = {
   focusSubject: string;
   onTimerEnd: () => void;
-  clearSubject: () => void;
+  onClearSubject: () => void;
 };
 
-export const Timer = ({ focusSubject, onTimerEnd, clearSubject }: TimerProps) => {
+export const Timer = ({ focusSubject, onTimerEnd, onClearSubject }: TimerProps) => {
   const [isStarted, setIsStarted] = useState<boolean>(false);
   const [progress, setProgress] = useState<number>(1);
   const [minutes, setMinutes] = useState<number>(0.1);
 
   return (
-    <View style={styles.container}>
+    <View style={styles.mainContainer}>
       {/* Countdown timer */}
-      <View style={styles.countdown}>
+      <View style={styles.countdownContainer}>
         <Countdown
           minutes={minutes}
           isPaused={!isStarted}
@@ -60,12 +60,12 @@ export const Timer = ({ focusSubject, onTimerEnd, clearSubject }: TimerProps) =>
       </View>
 
       {/* Set counter value */}
-      <View style={styles.timingWrapper}>
+      <View style={styles.timingContainer}>
         <Timing onChangeTime={setMinutes} />
       </View>
 
       {/* Start/Pause button */}
-      <View style={styles.buttonWrapper}>
+      <View style={styles.buttonContainer}>
         {!isStarted && (
           <RoundedButton title='Start' size={100} onPress={() => setIsStarted(true)} />
         )}
@@ -73,33 +73,49 @@ export const Timer = ({ focusSubject, onTimerEnd, clearSubject }: TimerProps) =>
           <RoundedButton size={100} title='Pause' onPress={() => setIsStarted(false)} />
         )}
       </View>
+
+      {/* Clear subject */}
+      <View style={styles.clearSubjectContainer}>
+        <RoundedButton size={50} title='-' onPress={onClearSubject} />
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  mainContainer: {
     flex: 1,
   },
 
-  countdown: {
+  countdownContainer: {
     flex: 0.4,
     justifyContent: 'center', // align along the main axis.
     alignItems: 'center', // align along the cross axis.
   },
 
-  timingWrapper: {
+  progressBarContainer: {
+    margin: spacing.sm,
+    paddingTop: spacing.xl,
+  },
+
+  timingContainer: {
     flex: 0.1,
     flexDirection: 'row',
     paddingTop: spacing.xxl,
   },
 
-  buttonWrapper: {
+  buttonContainer: {
     flex: 0.3,
     flexDirection: 'row',
     padding: 15,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+
+  clearSubjectContainer: {
+    flex: 0.3,
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
 
   title: {
@@ -113,10 +129,5 @@ const styles = StyleSheet.create({
     fontSize: fontSizes.lg,
     color: colors.white,
     textAlign: 'center',
-  },
-
-  progressBarContainer: {
-    margin: spacing.sm,
-    paddingTop: spacing.xl,
   },
 });
