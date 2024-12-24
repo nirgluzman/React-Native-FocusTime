@@ -31,6 +31,12 @@ https://www.npmjs.com/package/react-native-progress
 
 - Progress indicators and spinners for React Native using React Native SVG.
 
+## Expo KeepAwake
+
+https://docs.expo.dev/versions/latest/sdk/keep-awake/
+
+- A React component that prevents the screen from sleeping when rendered.
+
 ## Padding vs. Margin
 
 - `Margin` is the space around an element. It is used to move an element up or down on a page as

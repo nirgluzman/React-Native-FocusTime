@@ -1,5 +1,9 @@
 import { StyleSheet, View, Text, Vibration } from 'react-native';
 
+import {
+  useKeepAwake, // hook to prevent the screen from sleeping.
+} from 'expo-keep-awake';
+
 // Progress indicators and spinners for React Native.
 import * as Progress from 'react-native-progress';
 
@@ -32,6 +36,9 @@ export const Timer = ({ focusSubject, onTimerEnd, onClearSubject }: TimerProps) 
   const [isStarted, setIsStarted] = useState<boolean>(false);
   const [progress, setProgress] = useState<number>(1);
   const [minutes, setMinutes] = useState<number>(0.1);
+
+  // prevent the screen from sleeping.
+  useKeepAwake();
 
   const endHandler = () => {
     Vibration.vibrate(PATTERN);
