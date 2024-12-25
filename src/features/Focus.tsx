@@ -16,7 +16,7 @@ export const Focus = ({ handleAdd }: FocusProps) => {
   const [subject, setSubject] = useState<string>('');
 
   return (
-    <View style={styles.container}>
+    <View style={styles.mainContainer}>
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.textInput}
@@ -38,18 +38,13 @@ export const Focus = ({ handleAdd }: FocusProps) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-
-  button: {
-    justifyContent: 'center',
-    alignItems: 'center',
+  mainContainer: {
+    flex: 0.2,
   },
 
   inputContainer: {
     padding: spacing.lg,
-    justifyContent: 'flex-start',
+    justifyContent: 'flex-start', // align along the main axis.
     flexDirection: 'row',
   },
 
@@ -57,5 +52,10 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: fontSizes.md,
     marginRight: spacing.sm,
+  },
+
+  button: {
+    justifyContent: 'center', // align along the main axis.
+    alignItems: 'center', // align along the cross axis.
   },
 });
